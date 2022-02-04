@@ -1,29 +1,450 @@
 <!DOCTYPE html>
-<html>
+<html lang="zxx">
+
 <head>
-    <!-- Add Azure Application Insights to your chat.
-        Uncomment the following code snippet and replace
-        <appInsightInstrumnetationKey> with your own
-        instrumentation key. For more info about
-        Application Insight and instumentation key:
-        https://docs.microsoft.com/en-us/azure/azure-monitor/app/create-new-resource#copy-the-instrumentation-key
-    -->
-    <!--
-    <script>
-        var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}(
-        {
-            instrumentationKey:"<appInsightInstrumnetationKey>"
-        }
-        );window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
-    </script>
-    -->
-    <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
-    <script src="index.js"></script>
-    <link href="stylesheets/style.css" rel="stylesheet" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Mental Health Bot</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700iRaleway:300,300i,400,400i,500,500i,600,600i,700,700iPoppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+  <script src="index.js"></script>
 </head>
+
 <body>
-<div id="webchat" role="main" watermark="false"></div>
-<script>chatRequested();</script>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top  header-transparent ">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <h1><a href="index.html">Mental Health Bot</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#features">Features</a></li>
+          <li><a class="nav-link scrollto" href="#details">How it works</a></li>
+          <li><a class="nav-link scrollto" href="#faq">Info</a></li>
+          <li><a class="nav-link scrollto" href="#footer">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1" data-aos="fade-up">
+          <h1>Mental Health Bot</h1>
+          <div>
+            
+            <h2>Use our free, reliable and anonymous mental health bot to screen for Anxiety, Depression and ADHD, and receive recommendations on next steps and assistance with contacting a mental health professional.</h2>
+            <a href="#" class="download-btn"><i class='bx bxs-bot'></i> Chat now!</a>
+          </div>
+        </div>
+        <div class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img" data-aos="fade-up">
+          <!-- Photo by Keira Burton from Pexels -->
+          <!-- https://www.pexels.com/photo/multiracial-positive-male-and-female-students-using-smartphones-in-city-park-6146931/ -->
+          <img src="assets/img/pexels-keira-burton-6146931.jpeg" class="img-fluid" alt="Students using smartphones in city park" style="padding: 10px; border: 1px solid #ddd; border-radius: 10px">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+    <div id="chatbot">
+      <div id="chat-button">
+        <button class="btn btn-success">Chat</button>
+      </div>
+    <div class="chatbox" id="chatbox">
+      <div class="chat-window">
+        <div class="msg-container msg-remote" >
+          <div class="msg-box">
+            <img class="user-img" alt="user-0" src="https://via.placeholder.com/100x100?text=placeholder" />
+            <div class="flr">
+              <div class="messages">
+                <p class="msg" >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius, neque non tristique tincidunt, mauris nunc efficitur erat, elementum semper justo odio id nisi.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="msg-container msg-self" >
+          <div class="msg-box">
+            <div class="flr">
+              <div class="messages">
+                <p class="msg">
+                  Lorem ipsum dolor sit amet
+                </p>
+              </div>
+            </div>
+            <img class="user-img"  alt="user1" src="https://via.placeholder.com/100x100?text=placeholder" />
+          </div>
+        </div>
+        
+        <div class="msg-container msg-remote">
+          <div class="msg-box">
+            <img class="user-img" alt="user1" src="https://via.placeholder.com/100x100?text=placeholder" />
+            <div class="flr">
+              <div class="messages">
+                <p class="msg" >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius, neque non tristique tincidunt, mauris nunc efficitur erat, elementum semper justo odio id nisi.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="msg-container msg-self" >
+          <div class="msg-box">
+            <div class="flr">
+              <div class="messages">
+                <p class="msg" >
+                  Lorem ipsum dolor sit amet
+                </p>
+                <p class="msg" >
+                  Praesent varius
+                </p>
+              </div>
+            </div>
+            <img class="user-img" alt="user1"  src="https://via.placeholder.com/100x100?text=placeholder" />
+          </div>
+        </div>
+        
+      </div>
+      <form class="chat-input" onsubmit="return false;">
+        <input type="text" autocomplete="on" placeholder="Type a message" />
+        <button>
+                      <svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="rgba(0,0,0,.38)" d="M17,12L12,17V14H8V10H12V7L17,12M21,16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V7.5C3,7.12 3.21,6.79 3.53,6.62L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.79,6.79 21,7.12 21,7.5V16.5M12,4.15L5,8.09V15.91L12,19.85L19,15.91V8.09L12,4.15Z" /></svg>
+        </button>
+      </form>
+      
+    </div>
+    
+  </div>
+    <!-- ======= App Features Section ======= -->
+    <section id="features" class="features">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Bot Features</h2>
+          <p>Our mental health screening bot provides preliminary screening for Anxiety, Depression and ADHD in a safe, friendly
+          and interactive environment and thereafter, provides recommendations on how to manage the illness and provides
+          references to mental health services for specialised treatment.</p>
+        </div>
+
+        <div class="row no-gutters">
+          <div class="col-xl-7 d-flex align-items-stretch order-2 order-lg-1">
+            <div class="content d-flex flex-column justify-content-center">
+              <div class="row">
+                <div class="col-md-6 icon-box" data-aos="fade-up">
+                  <i class="bx bx-receipt"></i>
+                  <h4>Mental Health Screening</h4>
+                  <p>Our mental health bot currently screens only for Anxiety, Depression and ADHD.</p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+                  <i class="bx bx-receipt"></i>
+                  <h4>Free Use</h4>
+                  <p>No worrying about trials and subscriptions. Our bot is free for everyone to use.</p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+                  <i class="bx bx-receipt"></i>
+                  <h4>Privacy/Anonymity</h4>
+                  <p>Your privacy is our topmost concern. That is why our bot does not request or collect any personal information from
+                    you.</p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+                  <i class="bx bx-receipt"></i>
+                  <h4>Recommendations</h4>
+                  <p>If diagnosed positive, our bot will provide recommendations to help you manage the mental health illness.</p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
+                  <i class="bx bx-receipt"></i>
+                  <h4>Credibility</h4>
+                  <p>All questions asked during screening are from valid and reliable questionnaires (such as PHQ-9, GAD-7 and ASRS)
+                    widely used in the healthcare industry. References to the scientific literature can be found in the Info section of this app.
+                  </p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
+                  <i class="bx bx-receipt"></i>
+                  <h4>Professional Help</h4>
+                  <p>Ultimately, using our bot is not a substitute for seeking professional help so if diagnosed positive, our bot will provide resources to help you contact a licensed mental health professional for more specialised treatment.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="image col-xl-5 d-flex align-items-center justify-content-center order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+            <!-- Image by Tumisu from Pixabay -->
+            <!-- https://pixabay.com/illustrations/mental-health-mental-health-head-3337026/ -->
+            <img src="assets/img/mental-health-gae9b9f5b0_1280.jpeg" alt="Abstract Human Head with pieces of puzzle" class="img-fluid" style="padding: 10px; border: 1px solid #ddd; border-radius: 10px">
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End App Features Section --> 
+
+    <!-- ======= Details Section ======= -->
+    <section id="details" class="details">
+      <div class="container">
+        <div class="section-title">
+          <h2>How it works</h2>
+        </div>
+        <div class="row content">
+          <div class="col-md-4" data-aos="fade-right">
+            <img src="https://via.placeholder.com/1408x1632?text=placeholder" class="img-fluid" alt="">
+          </div>
+          <div class="col-md-8 pt-4" data-aos="fade-up">
+            <h3>1. Take the Screening</h3>
+            <!-- <p class="fst-italic">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua.
+            </p> -->
+            <!-- <ul>
+              <li><i class="bi bi-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+              <li><i class="bi bi-check"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+              <li><i class="bi bi-check"></i> Iure at voluptas aspernatur dignissimos doloribus repudiandae.</li>
+              <li><i class="bi bi-check"></i> Est ipsa assumenda id facilis nesciunt placeat sed doloribus praesentium.</li>
+            </ul> -->
+            <p>
+              Click or tap the Chat icon at the bottom right of your screen or the Chat Now button at the top of this page to start chatting with the bot and begin the screening.
+            </p>
+          </div>
+        </div>
+
+        <div class="row content">
+          <div class="col-md-4 order-1 order-md-2" data-aos="fade-left">
+            <img src="https://via.placeholder.com/1408x1632?text=placeholder" class="img-fluid" alt="">
+          </div>
+          <div class="col-md-8 pt-5 order-2 order-md-1" data-aos="fade-up">
+            <h3>2. Understand your results</h3>
+            <!-- <p class="fst-italic">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua.
+            </p> -->
+            <p>
+              Our bot will provide you with a score regarding if you have Anxiety, Depression or ADHD.
+              If your results return positive for any of these three illnesses, our bot will also let you know the severity level of the illness.
+            </p>
+            <!-- <p>
+              Inventore id enim dolor dicta qui et magni molestiae. Mollitia optio officia illum ut cupiditate eos autem. Soluta dolorum repellendus repellat amet autem rerum illum in. Quibusdam occaecati est nisi esse. Saepe aut dignissimos distinctio id enim.
+            </p> -->
+          </div>
+        </div>
+
+        <div class="row content">
+          <div class="col-md-4" data-aos="fade-right">
+            <img src="https://via.placeholder.com/1408x1632?text=placeholder" class="img-fluid" alt="">
+          </div>
+          <div class="col-md-8 pt-5" data-aos="fade-up">
+            <h3>3. Follow our recommendations</h3>
+            <!-- <p>Cupiditate placeat cupiditate placeat est ipsam culpa. Delectus quia minima quod. Sunt saepe odit aut quia voluptatem hic voluptas dolor doloremque.</p> -->
+            <!-- <ul>
+              <li><i class="bi bi-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+              <li><i class="bi bi-check"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+              <li><i class="bi bi-check"></i> Facilis ut et voluptatem aperiam. Autem soluta ad fugiat.</li>
+            </ul> -->
+            <p>
+              Depending on your screening results, our bot will provide recommendations to help you manage the mental health illness.
+            </p>
+            <!-- <p>
+              Suscipit enim et. Ut optio esse quidem quam reiciendis esse odit excepturi. Vel dolores rerum soluta explicabo vel fugiat eum non.
+            </p> -->
+          </div>
+        </div>
+
+        <div class="row content">
+          <div class="col-md-4 order-1 order-md-2" data-aos="fade-left">
+            <!-- Photo by Alex Green from Pexels -->
+            <!-- https://www.pexels.com/photo/crop-unrecognizable-black-man-sharing-complains-with-female-psychologist-5699466/ -->
+            <img src="assets/img/pexels-alex-green-5699466.jpeg" class="img-fluid" alt="crop-unrecognizable-black-man-sharing-complains-with-female-psychologist" style="padding: 10px; border: 1px solid #ddd; border-radius: 10px">
+          </div>
+          <div class="col-md-8 pt-5 order-2 order-md-1" data-aos="fade-up">
+            <h3>4. Seek Professional Help</h3>
+            <!-- <p class="fst-italic">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua.
+            </p> -->
+            <p>
+              Ultimately, using our bot is not a substitute for seeking professional help. Hence, depending on your results, our bot will
+              provide resources to help you contact a licensed mental health professional for more specialised treatment.
+            </p>
+            <!-- <ul>
+              <li><i class="bi bi-check"></i> Et praesentium laboriosam architecto nam .</li>
+              <li><i class="bi bi-check"></i> Eius et voluptate. Enim earum tempore aliquid. Nobis et sunt consequatur. Aut repellat in numquam velit quo dignissimos et.</li>
+              <li><i class="bi bi-check"></i> Facilis ut et voluptatem aperiam. Autem soluta ad fugiat.</li>
+            </ul> -->
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Details Section -->
+
+    <!-- ======= Frequently Asked Questions Section ======= -->
+    <section id="faq" class="faq section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+
+          <h2>Info on Applicable Mental Health Illnesses</h2>
+          <p>Our mental health screening bot currently only screens for Anxiety, Depression and ADHD. 
+            The results of your screening will let you know which of these conditions is responsible for your symptoms, 
+            and our bot will also provide recommendations and resources to help you manage the illness and get professional help.</p>
+        </div>
+
+        <div class="accordion-list">
+          <ul>
+            <li data-aos="fade-up">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1">How reliable are the questions asked during screening? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
+                <p>
+                  All questions asked during screening are from valid and reliable questionnaires widely used in the healthcare industry.
+                  The scientific literature to validate these claims can be viewed below:
+                </p>
+                <ol>
+                  <li>PHQ-9 Questionnaire for Depression: Kroenke K, Spitzer RL, Williams JB (September 2001). "The PHQ-9: validity of a
+                  brief depression severity measure". Journal of General Internal Medicine. 16 (9): 606–13.
+                  doi:10.1046/j.1525-1497.2001.016009606.x </li>
+                  <li>GAD-7 Questionnaire for Anxiety: Spitzer RL, Kroenke K, Williams JB, Löwe B (May 2006). "A brief measure for assessing
+                  generalized anxiety disorder: the GAD-7". Archives of Internal Medicine. 166 (10): 1092–7.
+                  doi:10.1001/archinte.166.10.1092 </li>
+                  <li>ASRS Questionnaire for ADHD: Adler, Lenard A.; Spencer, Thomas; Faraone, Stephen V.; Kessler, Ronald C.; Howes, Mary
+                  J.; Biederman, Joseph; Secnik, Kristina (July 2006). "Validity of Pilot Adult ADHD Self-Report Scale (ASRS) to Rate
+                  Adult ADHD Symptoms". Annals of Clinical Psychiatry. 18 (3): 145–148. doi:10.1080/10401230600801077 </li>
+                </ol>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="100">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed">What are the symptoms of Anxiety, Depression and ADHD? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
+                <p>
+                  Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="200">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed">Dolor sit amet consectetur adipiscing elit? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
+                <p>
+                  Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="300">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#accordion-list-4" class="collapsed">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="accordion-list-4" class="collapse" data-bs-parent=".accordion-list">
+                <p>
+                  Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in.
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="400">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#accordion-list-5" class="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="accordion-list-5" class="collapse" data-bs-parent=".accordion-list">
+                <p>
+                  Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque.
+                </p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+    </section><!-- End Frequently Asked Questions Section -->
+
+  </main><!-- End #main -->
+  <div id="webchat" role="main" watermark="false"></div>
+  <script>chatRequested();</script>
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-6 col-md-6 footer-contact">
+            <h3>Mental Health Bot</h3>
+            <p>
+             
+              <strong>Phone:</strong> +x xxxxxxxxxx<br>
+              <strong>Email:</strong> info@example.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-6 col-md-6 footer-links">
+            <h4>Our Social Networks</h4>
+            <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container py-4">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Mental Health Bot</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-bootstrap-app-landing-page-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <!-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> -->
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="assets/js/chatbot.js"></script>
+  
 </body>
+
 </html>
