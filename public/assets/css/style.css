@@ -468,7 +468,7 @@ section {
 
 #chatbot {
   width: 30em;
-  height: 37em;
+  height: 32px;
   padding: 0;
   position: fixed;
   bottom: 0;
@@ -481,7 +481,7 @@ section {
   width: 30em;
   height: 35em;
   max-height: 35em;
-  display: flex;
+  display: None;
   flex-direction: column;
   overflow: hidden;
   box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);

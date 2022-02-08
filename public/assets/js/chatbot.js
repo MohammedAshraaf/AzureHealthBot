@@ -1,6 +1,6 @@
 // Make chatbot open by default.
-var isChatOpen = true;
-
+var isChatOpen = false;
+var isChatBotActive = false;
 /* Open and closes the chatbot. */
 $('#chat-button button').click(function () {
   if (isChatOpen) {
@@ -16,6 +16,11 @@ $('#chat-button button').click(function () {
     increaseChatHeight();
     // Update boolean to reflect that chatbot is now open.
     isChatOpen = true;
+    if(!isChatBotActive)
+    {
+      isChatBotActive = true;
+      chatRequested();
+    }
   }
 });
 
