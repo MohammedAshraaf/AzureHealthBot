@@ -37,6 +37,11 @@ $(window).resize(function () {
 
 /* Displays the chatbot by setting its height for different screen sizes. */
 function increaseChatHeight() {
+  if(!isChatOpen)
+  {
+    $('#chatbot').css('height', '32px'); 
+    return;
+  }
   if (window.matchMedia('(max-width: 767px)').matches) {
     $('#chatbot').css('height', "22em");
   }
