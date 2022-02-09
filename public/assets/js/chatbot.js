@@ -14,9 +14,9 @@ $('#chat-button button').click(function(){
   {
     // Open chatbot.
     $('#webchat').css('display', 'block');
+    isChatOpen = true;
     increaseChatHeight();
     // Update boolean to reflect that chatbot is now open.
-    isChatOpen = true;
     if(!isBotCreated)
     {
       chatRequested();
@@ -40,6 +40,7 @@ function increaseChatHeight() {
   if(!isChatOpen)
   {
     $('#chatbot').css('height', '32px'); 
+    console.log("hello")
     return;
   }
   if (window.matchMedia('(max-width: 767px)').matches) {
