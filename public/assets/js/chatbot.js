@@ -1,50 +1,49 @@
-var chat= 0;
-$('.chat-input input').keyup(function(e) {
-  if ($(this).val() == '')
-    $(this).removeAttr('good');
-  else
-    $(this).attr('good', '');
-
-});
+// Make chatbot closed by default.
+var isChatOpen = false;
+var isBotCreated = false;
 $('#chat-button button').click(function(){
-  var height = $(".chatbox").css( "height" ).split("px");
-  if(chat % 2 == 0)
+  if(isChatOpen)
   {
-    $('#chatbox').css('display', 'none');
-    $('#chatbot').css('height', '32px');
+    // Close chatbot.
+    $('#webchat').css('display', 'none');
+    $('#chatbot').css('height', '32px'); 
+    // Update boolean to reflect that chatbot is now closed.
+    isChatOpen = false;  
   }
   else
   {
-    $('#chatbox').css('display', 'flex');
-  changeChatSize();
-
+    // Open chatbot.
+    $('#webchat').css('display', 'block');
+    increaseChatHeight();
+    // Update boolean to reflect that chatbot is now open.
+    isChatOpen = true;
+    if(!isBotCreated)
+    {
+      chatRequested();
+      isBotCreated = true
+    }
   }
-  chat++;
     
 });
-$(window).resize(function()
-{
-  if(chat % 2)
-  {
+
+/* Sets the chatbot height when the window is resized. */
+$(window).resize(function () {
+  if (isChatOpen) {
     return;
   }
-  changeChatSize();
+  increaseChatHeight();
 });
 
-function changeChatSize()
-{
-  if (window.matchMedia('(max-width: 767px)').matches)
-    {
-      $('#chatbot').css('height', "22em");
-    }
-    else if (window.matchMedia('(max-width: 992px)').matches)
-    {
-      $('#chatbot').css('height', "27em");
-    }
-    else
-    {
-      $('#chatbot').css('height', "37em");
 
-    }
+/* Displays the chatbot by setting its height for different screen sizes. */
+function increaseChatHeight() {
+  if (window.matchMedia('(max-width: 767px)').matches) {
+    $('#chatbot').css('height', "22em");
+  }
+  else if (window.matchMedia('(max-width: 992px)').matches) {
+    $('#chatbot').css('height', "27em");
+  }
+  else {
+    $('#chatbot').css('height', "37em");
+  }
 }
-
