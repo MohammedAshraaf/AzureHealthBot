@@ -635,7 +635,7 @@ section {
 }
 
 .custom-btn-style {
-  background: url('../img/Chatbot_icon_small.png');
+  background: url('../assets/img/Chatbot_icon_small.png');
   /* image source: https://www.flaticon.com/premium-icon/chatbot_2068998 */
   background-position:center;
   background-repeat:no-repeat;
